@@ -32,7 +32,7 @@ export const fetch = async (req, res) => {
 
 export const fetchByemail = async (req, res) => {
   try {
-    const email = req.body.email;
+    const email = req.body;
     
     const users = await User.find({email});
     if(users.length === 0)
