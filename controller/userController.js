@@ -32,12 +32,11 @@ export const fetch = async (req, res) => {
 
 export const fetchByemail = async (req, res) => {
   try {
-    const email = req.body.email;
+    const email = req.query.email;
     
-    const users = await User.find({email});
-    if(users.length === 0)
-    {
-        return res.status(404).json({ message: "User Not Found!..." });
+    const users = await User.find({ email });
+    if (users.length === 0) {
+      return res.status(404).json({ message: "User Not Found!..." });
     }
     return res.status(200).json(users);
     // return res.status(200).json("Hello getting error");
